@@ -18,15 +18,33 @@ Use console.log() to clearly show the before-and-after type conversions.
 
 */
 
-
-let result = "5" - 2;
+//Evaluates the string and returns the int value explicitly
+let result = parseInt("5") - 2;
 console.log("The result is: " + result);
 
-let isValid = Boolean("false");
+//Removed quotations, "false" is a truthy value
+let isValid = Boolean(false);
 if (isValid) {
     console.log("This is valid!");
 }
 
 let age = "25";
-let totalAge = age + 5;
+//Casts to Number explicitly
+let totalAge = Number(age) + 5;
 console.log("Total Age: " + totalAge);
+
+//Implicit conversion
+if(NaN){
+  console.log("This won't run because 'NaN' is evaluated as a falsy value");
+}
+
+//Explicit conversion
+//Before casting
+let shouldBeANumber = "5";
+let isActuallyANumber = 17;
+
+console.log(isActuallyANumber + shouldBeANumber); // prints 175 when it should print 22
+
+//Casting the string to a number
+shouldBeANumber = Number(shouldBeANumber);
+console.log(isActuallyANumber + shouldBeANumber);
